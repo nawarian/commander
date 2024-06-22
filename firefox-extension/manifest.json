@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+  "name": "Commander",
+  "description": "Adds context menu commands to your browser",
+  "version": "1.0",
+  "homepage_url": "https://codamos.com.br/commander",
+  "background": {
+    "scripts": [
+      "dist.js"
+    ],
+    "persistent": false
+  },
+  "permissions": [
+    "activeTab",
+    "contextMenus"
+  ]
+}
+
