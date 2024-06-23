@@ -10,7 +10,7 @@ browser.contextMenus.create(
 async function handleOpenMpvVideo(info, tab) {
   const youtubeUrl = new URL(info.linkUrl)
 
-  const url = new URL(`http://localhost:7171/youtube?format=${youtubeUrl.searchParams.get('format')}&video=${youtubeUrl.searchParams.get('v')}`)
+  const url = new URL(`http://localhost:7171/youtube?format=mp4&video=${youtubeUrl.searchParams.get('v')}`)
   await fetch(url, {
     method: "POST",
     headers: {

@@ -11,7 +11,6 @@ async fn main() -> std::io::Result<()> {
             .wrap(
                 actix_cors::Cors::permissive()
                     .allowed_origin_fn(|_origin, _req_head| true)
-                    // .supports_credentials()
             )
             .route("/whoami", web::get().to(whoami))
             .route("/youtube", web::post().to(launch_youtube))
@@ -49,7 +48,8 @@ async fn launch_youtube(req: HttpRequest) -> impl Responder {
 
     let handle = task::spawn(async move {
         let _ = Command::new("/usr/bin/mpv")
-            .arg(format!("https://www.youtube.com/watch?v={video} --ytdl-format={format}", video=video, format=format))
+            .arg(format!("https://www.youtube.com/watch?v={video}", video=video))
+            .arg(format!("--ytdl-format={format}", format=format))
             .stdout(Stdio::null())
             .stderr(Stdio::null())
             .spawn();
