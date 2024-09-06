@@ -49,7 +49,8 @@ async fn launch_youtube(req: HttpRequest) -> impl Responder {
     let handle = task::spawn(async move {
         let _ = Command::new("/usr/bin/mpv")
             .arg(format!("https://www.youtube.com/watch?v={video}", video=video))
-            .arg(format!("--ytdl-format={format}", format=format))
+            // .arg(format!("--ytdl-format={format}", format=format))
+            .arg("--no-ytdl")
             .stdout(Stdio::null())
             .stderr(Stdio::null())
             .spawn();
