@@ -1,0 +1,7 @@
+services:
+  synth-server:
+    build: synth/
+    ports:
+      - 55501:8080
+    restart: unless-stopped
+

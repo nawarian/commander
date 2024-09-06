@@ -1,0 +1,10 @@
+torch
+transformers
+sentencepiece
+datasets[audio]
+
+# FastAPI
+fastapi
+uvicorn
+pydantic
+
